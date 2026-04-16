@@ -787,30 +787,20 @@
 
   .grid-headers,
   .guess-row {
-    grid-template-columns: 66px repeat(5, 1fr);
-  }
-
-  .grid-headers,
-  .guesses-container {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .grid-headers {
-    min-width: 620px;
+    grid-template-columns: 56px repeat(5, minmax(0, 1fr));
   }
 
   .guess-row {
-    min-width: 620px;
+    min-height: 62px;
   }
 
-  .guess-row {
-    min-height: 68px;
+  .header-cell {
+    font-size: 0.68rem;
+    letter-spacing: 0.2px;
   }
 
   .guess-cell {
-    font-size: 0.76rem;
+    font-size: 0.7rem;
     padding: 2px;
   }
 
@@ -890,6 +880,23 @@
 }
 
 @media (max-width: 560px) {
+  .grid-headers,
+  .guess-row {
+    grid-template-columns: 50px repeat(5, minmax(0, 1fr));
+  }
+
+  .header-cell {
+    font-size: 0.62rem;
+  }
+
+  .guess-row {
+    min-height: 58px;
+  }
+
+  .guess-cell {
+    font-size: 0.64rem;
+  }
+
   .search-section {
     margin-bottom: 14px;
   }
