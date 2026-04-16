@@ -22,6 +22,7 @@ export function updateEmojiMode() {
     <div class="emoji-container">
       ${emojisHtml}
     </div>
+    <p class="emoji-note">Chức năng này chưa được hoàn thiện.</p>
   `;
 
   // Render guesses

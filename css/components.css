@@ -470,6 +470,14 @@
   flex-wrap: wrap;
 }
 
+.emoji-note {
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 .emoji-slot {
   width: 68px;
   height: 68px;
@@ -530,6 +538,18 @@
 .splash-fallback p {
   margin: 0;
   color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+  .race-panel {
+    width: min(280px, calc(100vw - 16px));
+    padding: 10px;
+  }
+
+  .race-hud {
+    font-size: 0.8rem;
+    gap: 4px 8px;
+  }
 }
 
 /* Modal styling */
@@ -770,6 +790,21 @@
     grid-template-columns: 66px repeat(5, 1fr);
   }
 
+  .grid-headers,
+  .guesses-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .grid-headers {
+    min-width: 620px;
+  }
+
+  .guess-row {
+    min-width: 620px;
+  }
+
   .guess-row {
     min-height: 68px;
   }
@@ -844,9 +879,101 @@
   }
 
   .race-panel {
-    top: 8px;
-    right: 8px;
-    width: min(280px, calc(100% - 16px));
+    position: static;
+    top: auto;
+    right: auto;
+    width: 100%;
+    margin-top: 10px;
     padding: 10px;
+    z-index: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .search-section {
+    margin-bottom: 14px;
+  }
+
+  #character-search {
+    font-size: 0.9rem;
+    padding: 12px 45px 12px 12px;
+  }
+
+  .autocomplete-item {
+    padding: 8px 12px;
+    gap: 10px;
+  }
+
+  .autocomplete-item img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .autocomplete-item span {
+    font-size: 1rem;
+  }
+
+  .quote-container,
+  .emoji-container,
+  .splash-container,
+  .voice-container {
+    padding: 16px 12px;
+    margin-bottom: 14px;
+  }
+
+  .quote-container p {
+    font-size: 1.08rem;
+    line-height: 1.35;
+  }
+
+  .quote-container::before,
+  .quote-container::after {
+    font-size: 4rem;
+  }
+
+  .modal {
+    padding: 10px;
+  }
+
+  .modal-title {
+    font-size: 1.7rem;
+  }
+
+  .modal-message {
+    font-size: 0.95rem;
+  }
+
+  .modal-btn {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 1rem;
+  }
+
+  .modal.splash-victory-mode .victory-character-side img {
+    width: 78px;
+    height: 78px;
+  }
+
+  .modal.splash-victory-mode .victory-splash-full {
+    width: min(100%, 230px);
+    max-width: 230px;
+  }
+
+  .race-panel {
+    position: static;
+    width: 100%;
+    padding: 8px;
+    border-radius: 10px;
+  }
+
+  .race-btn {
+    font-size: 0.78rem;
+    padding: 6px 10px;
+  }
+
+  .race-status {
+    min-height: 14px;
+    margin-top: 6px;
+    font-size: 0.72rem;
   }
 }

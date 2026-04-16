@@ -82,12 +82,7 @@ function modeLabel(mode) {
 function setBackgroundForMode(mode) {
   const bgImage = document.querySelector('.bg-image');
   if (!bgImage) return;
-
-  if (mode === 'classic') {
-    bgImage.style.backgroundImage = "url('./database/assets/BG/BG.png')";
-  } else {
-    bgImage.style.backgroundImage = '';
-  }
+  bgImage.style.backgroundImage = "url('./database/assets/BG/BG.png')";
 }
 
 function renderCurrentMode() {
@@ -499,4 +494,3 @@ export function switchMode(mode) {
   updateRaceControlsState();
   updateNewQuestionButtonVisibility();
 }
-
