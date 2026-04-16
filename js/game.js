@@ -7,13 +7,15 @@ class GameState {
       classic: null,
       quote: null,
       emoji: null,
-      splash: null
+      splash: null,
+      voice: null
     };
     this.guesses = {
       classic: [],
       quote: [],
       emoji: [],
-      splash: []
+      splash: [],
+      voice: []
     };
     this.initTargets();
   }
@@ -30,7 +32,8 @@ class GameState {
       classic: [],
       quote: [],
       emoji: [],
-      splash: []
+      splash: [],
+      voice: []
     };
     this.initTargets();
   }

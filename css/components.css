@@ -350,8 +350,8 @@
 .legend-item .box.arrow-up { background: var(--color-wrong); font-size: 1.5rem; }
 .legend-item .box.arrow-down { background: var(--color-wrong); font-size: 1.5rem; }
 
-/* Quote, Emoji, Splash overrides */
-.quote-container, .emoji-container, .splash-container {
+/* Quote, Emoji, Splash, Voice overrides */
+.quote-container, .emoji-container, .splash-container, .voice-container {
   background: linear-gradient(180deg, rgba(20, 32, 53, 0.9) 0%, rgba(11, 19, 35, 0.95) 100%);
   border: 1px solid rgba(255, 218, 121, 0.22);
   border-top: 2px solid rgba(255, 210, 90, 0.9);
@@ -420,6 +420,27 @@
   justify-content: center;
   font-size: 2rem;
   box-shadow: inset 0 0 18px rgba(246, 201, 85, 0.06), 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+.voice-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.voice-title {
+  font-size: 1.1rem;
+  color: #fff2c7;
+  font-weight: 600;
+}
+
+.voice-player {
+  width: 100%;
+}
+
+.voice-fallback-text {
+  margin: 0;
+  color: var(--text-muted);
 }
 
 .splash-container {
@@ -624,6 +645,10 @@
     height: 58px;
     font-size: 1.6rem;
     border-radius: 14px;
+  }
+
+  .voice-container {
+    padding: 20px 14px;
   }
 
   .modal-content {

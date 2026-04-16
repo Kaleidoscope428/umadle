@@ -4,6 +4,7 @@ import { updateClassicMode, renderClassicGuess } from './modes/classic.js';
 import { updateQuoteMode } from './modes/quote.js';
 import { updateEmojiMode } from './modes/emoji.js';
 import { updateSplashMode } from './modes/splash.js';
+import { updateVoiceMode } from './modes/voice.js';
 
 function setBackgroundForMode(mode) {
   const bgImage = document.querySelector('.bg-image');
@@ -163,6 +164,8 @@ function submitGuess(character) {
     updateEmojiMode();
   } else if (gameState.currentMode === 'splash') {
     updateSplashMode();
+  } else if (gameState.currentMode === 'voice') {
+    updateVoiceMode();
   }
 
   if (gameState.hasWon()) {
@@ -223,6 +226,7 @@ export function switchMode(mode) {
     if (mode === 'quote') updateQuoteMode();
     else if (mode === 'emoji') updateEmojiMode();
     else if (mode === 'splash') updateSplashMode();
+    else if (mode === 'voice') updateVoiceMode();
   }
 
   const newQuestionBtn = document.getElementById('new-question-btn');

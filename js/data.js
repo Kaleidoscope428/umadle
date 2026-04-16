@@ -50,7 +50,8 @@ try {
       height: c.height || 160,
       quote: c.quotes || c.profile || '...',
       emojis: normalizeEmojiList(c.emoji),
-      splash: c.sns_header || c.thumb_img
+      splash: c.sns_header || c.thumb_img,
+      voice: c.voice || ''
     };
   });
 } catch (error) {
@@ -68,7 +69,8 @@ try {
       height: 164,
       quote: '"Welcome to Falco\'s live stage!"',
       emojis: ['🎤', '✨', '💖', '🐎'],
-      splash: 'https://placehold.co/600x400/1e1e24/fff?text=Smart+Falcon+Splash'
+      splash: 'https://placehold.co/600x400/1e1e24/fff?text=Smart+Falcon+Splash',
+      voice: ''
     },
     {
       id: 'agnes_digital',
@@ -81,7 +83,8 @@ try {
       height: 143,
       quote: '"I must witness all the precious horse girls!"',
       emojis: ['📸', '😍', '🏃‍♀️', '🏇'],
-      splash: 'https://placehold.co/600x400/1e1e24/fff?text=Agnes+Digital+Splash'
+      splash: 'https://placehold.co/600x400/1e1e24/fff?text=Agnes+Digital+Splash',
+      voice: ''
     }
   ];
 }
