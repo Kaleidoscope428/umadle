@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Umadle - Uma Musume Guessing Game</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Beaufort+for+LOL:wght@400;700&family=Spiegel:wght@400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <!-- Fullscreen blurred background -->
+  <div class="bg-image"></div>
+  
+  <div class="app-container">
+    <header class="top-nav">
+      <!-- Title -->
+      <div class="header-top">
+        <span class="icon-cog">⚙️</span>
+        <h1 class="logo">UMADLE</h1>
+        <span class="icon-flag">🇯🇵</span>
+      </div>
+      
+      <!-- Mode selectors (Circular icons) -->
+      <nav class="mode-selector">
+        <button class="mode-btn active" data-mode="classic" title="Classic">
+          <span class="icon">❓</span>
+        </button>
+        <button class="mode-btn" data-mode="quote" title="Quote">
+          <span class="icon">💬</span>
+        </button>
+        <button class="mode-btn" data-mode="emoji" title="Emoji">
+          <span class="icon">🤡</span>
+        </button>
+        <button class="mode-btn" data-mode="splash" title="Splash">
+          <span class="icon">🖼️</span>
+        </button>
+      </nav>
+      
+      <!-- Sub headers / streak (Mocking the UI) -->
+      <div class="streak-box">
+        <div class="streak-item">📊</div>
+        <div class="streak-item highlight">🔥 0</div>
+        <div class="streak-item">📝</div>
+        <div class="streak-item">❓</div>
+      </div>
+    </header>
+
+    <main class="game-container">
+      
+
+
+      <!-- Specific Mode Header (Quote, Emoji, Splash goes here) -->
+      <div id="game-header-info"></div>
+
+      <!-- Search Section -->
+      <div class="search-section">
+        <div class="search-container">
+          <input type="text" id="character-search" placeholder="Type Uma Musume name ..." autocomplete="off">
+          <button class="search-submit">➤</button>
+          <ul id="autocomplete-list" class="autocomplete-list hidden"></ul>
+        </div>
+        <p class="people-found"><span class="highlight">32517</span> people already found out!</p>
+        <button id="new-question-btn" class="new-question-btn hidden" type="button">↻ New Question</button>
+      </div>
+
+      <!-- Classic Mode Table Headers -->
+      <div id="classic-mode-headers" class="grid-headers hidden">
+        <div class="header-cell">Character</div>
+        <div class="header-cell">Track</div>
+        <div class="header-cell">Distance</div>
+        <div class="header-cell">Style</div>
+        <div class="header-cell">Ear Acc.</div>
+        <div class="header-cell">Height</div>
+      </div>
+
+      <!-- Guesses Display Container -->
+      <div id="guesses-container" class="guesses-container">
+        <!-- Rendered dynamically -->
+      </div>
+      
+      <!-- Legend box -->
+      <div class="legend-box" id="legend-box">
+        <div class="legend-title">Color indicators</div>
+        <div class="legend-items">
+          <div class="legend-item"><div class="box correct"></div><span>Correct</span></div>
+          <div class="legend-item"><div class="box partial"></div><span>Partial</span></div>
+          <div class="legend-item"><div class="box wrong"></div><span>Incorrect</span></div>
+          <div class="legend-item"><div class="box arrow-up">↑</div><span>Higher</span></div>
+          <div class="legend-item"><div class="box arrow-down">↓</div><span>Lower</span></div>
+        </div>
+      </div>
+      
+    </main>
+  </div>
+
+  <div id="victory-modal" class="modal hidden">
+    <div class="modal-content anim-pop">
+      <button id="close-victory-btn" class="modal-close-btn" aria-label="Close result popup">✕</button>
+      <h2 class="modal-title">Victory!</h2>
+      <div id="victory-message" class="modal-message">You guessed the correct Uma Musume!</div>
+      <div id="victory-character-info" class="victory-info"></div>
+      <button id="play-again-btn" class="modal-btn">Play Again</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
