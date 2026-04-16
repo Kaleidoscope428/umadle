@@ -93,6 +93,18 @@ export function setupUI() {
     }
   });
 
+  // Anti-cheat (soft): block quick right-click/open-image and drag on splash clue area.
+  document.addEventListener('contextmenu', (e) => {
+    if (e.target.closest('.splash-container')) {
+      e.preventDefault();
+    }
+  });
+  document.addEventListener('dragstart', (e) => {
+    if (e.target.closest('.splash-container')) {
+      e.preventDefault();
+    }
+  });
+
   // Search submit button / Enter key
   const searchSubmit = document.querySelector('.search-submit');
   

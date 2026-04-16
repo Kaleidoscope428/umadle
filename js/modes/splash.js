@@ -15,20 +15,22 @@ export function updateSplashMode() {
       ? Math.max(1, 2.5 - guesses.length * 0.28)
       : Math.max(1.1, 2.9 - guesses.length * 0.32);
 
-    headerInfo.innerHTML = `
-      <div class="splash-container anim-pop">
-        <img
-          src="${splashHint.imageUrl}"
-          class="splash-image"
-          style="
-            transform: scale(${scaleAmount});
-            transform-origin: ${splashHint.focusX} ${splashHint.focusY};
-            filter: blur(${blurAmount}px);
-          "
-          alt="Support card clue"
-        >
-      </div>
-    `;
+    headerInfo.innerHTML = '';
+    const splashContainer = document.createElement('div');
+    splashContainer.className = 'splash-container anim-pop';
+
+    const splashImage = document.createElement('img');
+    splashImage.className = 'splash-image';
+    splashImage.src = splashHint.imageUrl;
+    splashImage.alt = 'Support card clue';
+    splashImage.draggable = false;
+    splashImage.referrerPolicy = 'no-referrer';
+    splashImage.style.transform = `scale(${scaleAmount})`;
+    splashImage.style.transformOrigin = `${splashHint.focusX} ${splashHint.focusY}`;
+    splashImage.style.filter = `blur(${blurAmount}px)`;
+
+    splashContainer.appendChild(splashImage);
+    headerInfo.appendChild(splashContainer);
   } else {
     headerInfo.innerHTML = `
       <div class="splash-container anim-pop splash-fallback">
