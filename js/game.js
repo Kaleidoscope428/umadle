@@ -1,4 +1,4 @@
-import { characters } from './data.js';
+import { buildSupportCardImageUrl, characters, getSupportCardsForCharacter } from './data.js';
 
 class GameState {
   constructor() {
@@ -17,14 +17,64 @@ class GameState {
       splash: [],
       voice: []
     };
+    this.modeHints = {
+      splash: null
+    };
     this.initTargets();
   }
 
+  getRandomCharacter(pool = characters) {
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+
+  createSplashHint(targetCharacter) {
+    const cards = getSupportCardsForCharacter(targetCharacter);
+    if (!cards.length) return null;
+
+    const selectedCard = cards[Math.floor(Math.random() * cards.length)];
+    const isTracenAcademy = selectedCard.titleEn === '[Tracen Academy]';
+
+    // 8 regions in a 4x2 grid, each region is approximately 1/8 of the image area.
+    const oneEighthRegions = [
+      { x: '12.5%', y: '25%' },
+      { x: '37.5%', y: '25%' },
+      { x: '62.5%', y: '25%' },
+      { x: '87.5%', y: '25%' },
+      { x: '12.5%', y: '75%' },
+      { x: '37.5%', y: '75%' },
+      { x: '62.5%', y: '75%' },
+      { x: '87.5%', y: '75%' }
+    ];
+
+    const region = oneEighthRegions[Math.floor(Math.random() * oneEighthRegions.length)];
+    return {
+      cardId: selectedCard.id,
+      titleEn: selectedCard.titleEn,
+      imageUrl: buildSupportCardImageUrl(selectedCard.id),
+      isTracenAcademy,
+      focusX: isTracenAcademy ? '50%' : region.x,
+      focusY: isTracenAcademy ? '50%' : region.y
+    };
+  }
+
+  resetSplashTargetAndHint() {
+    const splashCandidates = characters.filter((char) => getSupportCardsForCharacter(char).length > 0);
+    const splashPool = splashCandidates.length > 0 ? splashCandidates : characters;
+    const target = this.getRandomCharacter(splashPool);
+    this.targets.splash = target;
+    this.modeHints.splash = this.createSplashHint(target);
+  }
+
+  getSplashHint() {
+    return this.modeHints.splash;
+  }
+
   initTargets() {
-    // Select random targets for all modes
-    Object.keys(this.targets).forEach(mode => {
-      this.targets[mode] = characters[Math.floor(Math.random() * characters.length)];
-    });
+    this.targets.classic = this.getRandomCharacter();
+    this.targets.quote = this.getRandomCharacter();
+    this.targets.emoji = this.getRandomCharacter();
+    this.targets.voice = this.getRandomCharacter();
+    this.resetSplashTargetAndHint();
   }
 
   resetGame() {
@@ -41,7 +91,11 @@ class GameState {
   resetCurrentMode() {
     const mode = this.currentMode;
     this.guesses[mode] = [];
-    this.targets[mode] = characters[Math.floor(Math.random() * characters.length)];
+    if (mode === 'splash') {
+      this.resetSplashTargetAndHint();
+      return;
+    }
+    this.targets[mode] = this.getRandomCharacter();
   }
 
   getTarget() {

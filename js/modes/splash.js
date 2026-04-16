@@ -4,18 +4,38 @@ export function updateSplashMode() {
   const headerInfo = document.getElementById('game-header-info');
   const container = document.getElementById('guesses-container');
   const target = gameState.targets['splash'];
+  const splashHint = gameState.getSplashHint();
   const guesses = gameState.guesses['splash'];
 
-  // Logic: start zoomed in (scale 3), and filter blur(10px) 
-  // With each guess, zoom out and unblur progressively.
-  const blurAmount = Math.max(0, 10 - guesses.length * 2);
-  const scaleAmount = Math.max(1, 3 - guesses.length * 0.4);
+  if (splashHint) {
+    const blurAmount = splashHint.isTracenAcademy
+      ? Math.max(0, 12 - guesses.length * 2)
+      : 0;
+    const scaleAmount = splashHint.isTracenAcademy
+      ? Math.max(1, 2.5 - guesses.length * 0.28)
+      : Math.max(1.1, 2.9 - guesses.length * 0.32);
 
-  headerInfo.innerHTML = `
-    <div class="splash-container anim-pop">
-      <img src="${target.splash}" class="splash-image" style="transform: scale(${scaleAmount}); filter: blur(${blurAmount}px);">
-    </div>
-  `;
+    headerInfo.innerHTML = `
+      <div class="splash-container anim-pop">
+        <img
+          src="${splashHint.imageUrl}"
+          class="splash-image"
+          style="
+            transform: scale(${scaleAmount});
+            transform-origin: ${splashHint.focusX} ${splashHint.focusY};
+            filter: blur(${blurAmount}px);
+          "
+          alt="Support card clue"
+        >
+      </div>
+    `;
+  } else {
+    headerInfo.innerHTML = `
+      <div class="splash-container anim-pop splash-fallback">
+        <p>No support-card clue available for this character. Press New Question.</p>
+      </div>
+    `;
+  }
 
   // Render guesses
   container.innerHTML = '';

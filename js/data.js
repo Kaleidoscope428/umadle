@@ -1,4 +1,6 @@
 export let characters = [];
+export let supportCards = [];
+export const supportCardsByCharaId = new Map();
 
 function toTitleCase(value) {
   return String(value || '')
@@ -31,15 +33,32 @@ function normalizeEmojiList(rawEmoji) {
   return ['❓', '🐎', '🥇', '✨'];
 }
 
+export function buildSupportCardImageUrl(cardId) {
+  return `https://gametora.com/images/umamusume/supports/tex_support_card_${cardId}.png`;
+}
+
+export function getSupportCardsForCharacter(character) {
+  if (!character || character.gameId == null) return [];
+  return supportCardsByCharaId.get(character.gameId) || [];
+}
+
 try {
-  // Fetch from the newly created database file
-  const response = await fetch('./database/umamusume.json');
-  if (!response.ok) throw new Error('Failed to fetch JSON');
-  const rawData = await response.json();
+  const [umamusumeResponse, supportCardsResponse] = await Promise.all([
+    fetch('./database/umamusume.json'),
+    fetch('./database/support-card.json')
+  ]);
+  if (!umamusumeResponse.ok) throw new Error('Failed to fetch umamusume JSON');
+  if (!supportCardsResponse.ok) throw new Error('Failed to fetch support-card JSON');
+
+  const [rawData, rawSupportCards] = await Promise.all([
+    umamusumeResponse.json(),
+    supportCardsResponse.json()
+  ]);
   
   characters = rawData.map((c) => {
     return {
       id: c.name_en_internal || String(c.id),
+      gameId: c.game_id ?? null,
       name: c.name_en || c.name_jp,
       icon: c.thumb_img,
       // Use real classic puzzle data from JSON.
@@ -54,12 +73,28 @@ try {
       voice: c.voice || ''
     };
   });
+
+  supportCards = rawSupportCards
+    .map((card) => ({
+      id: Number(card.id),
+      charaId: Number(card.chara_id),
+      titleEn: card.title_en || ''
+    }))
+    .filter((card) => Number.isFinite(card.id) && Number.isFinite(card.charaId));
+
+  supportCardsByCharaId.clear();
+  supportCards.forEach((card) => {
+    const cards = supportCardsByCharaId.get(card.charaId) || [];
+    cards.push(card);
+    supportCardsByCharaId.set(card.charaId, cards);
+  });
 } catch (error) {
   console.warn("Failed to load /database/umamusume.json. Using fallback mock data.", error);
   // Fallback data if JSON fails to load
   characters = [
     {
       id: 'smart_falcon',
+      gameId: 0,
       name: 'Smart Falcon',
       icon: 'https://placehold.co/100x100/1e1e24/fff?text=SF',
       track: 'Dirt',
@@ -74,6 +109,7 @@ try {
     },
     {
       id: 'agnes_digital',
+      gameId: 0,
       name: 'Agnes Digital',
       icon: 'https://placehold.co/100x100/1e1e24/fff?text=AD',
       track: 'Turf, Dirt',
@@ -87,4 +123,6 @@ try {
       voice: ''
     }
   ];
+  supportCards = [];
+  supportCardsByCharaId.clear();
 }

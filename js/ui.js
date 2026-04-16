@@ -35,6 +35,7 @@ export function setupUI() {
   function hideVictoryModal() {
     modal.classList.add('hidden');
     modal.classList.remove('one-shot-mode');
+    modal.classList.remove('splash-victory-mode');
   }
 
   // Mode selection
@@ -182,6 +183,9 @@ function showVictoryModal() {
   
   const target = gameState.getTarget();
   const tries = gameState.guesses[gameState.currentMode].length;
+  const isSplashMode = gameState.currentMode === 'splash';
+  const splashHint = isSplashMode ? gameState.getSplashHint() : null;
+  modal.classList.toggle('splash-victory-mode', isSplashMode);
   
   if (tries === 1) {
     modal.classList.add('one-shot-mode');
@@ -190,10 +194,25 @@ function showVictoryModal() {
     msg.innerHTML = `You found the answer in <strong>${tries}</strong> tries!`;
   }
   
-  info.innerHTML = `
-    <img src="${target.icon}" alt="${target.name}">
-    <h3>${target.name}</h3>
-  `;
+  if (isSplashMode && splashHint?.imageUrl) {
+    info.classList.add('splash-victory-layout');
+    info.innerHTML = `
+      <div class="victory-character-side">
+        <img src="${target.icon}" alt="${target.name}">
+        <h3>${target.name}</h3>
+      </div>
+      <div class="victory-divider" aria-hidden="true"></div>
+      <div class="victory-splash-side">
+        <img src="${splashHint.imageUrl}" alt="Full support card" class="victory-splash-full">
+      </div>
+    `;
+  } else {
+    info.classList.remove('splash-victory-layout');
+    info.innerHTML = `
+      <img src="${target.icon}" alt="${target.name}">
+      <h3>${target.name}</h3>
+    `;
+  }
   
   modal.classList.remove('hidden');
 }
