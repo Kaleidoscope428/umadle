@@ -9,7 +9,7 @@ export function updateSplashMode() {
 
   if (splashHint) {
     const blurAmount = splashHint.isTracenAcademy
-      ? Math.max(0, 12 - guesses.length * 2)
+      ? Math.max(0, 2.5 - guesses.length * 1.1)
       : 0;
     const scaleAmount = splashHint.isTracenAcademy
       ? Math.max(1, 2.5 - guesses.length * 0.28)
