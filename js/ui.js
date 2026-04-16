@@ -123,8 +123,8 @@ export function setupUI() {
   // Play Again logic
   document.getElementById('play-again-btn').addEventListener('click', () => {
     hideVictoryModal();
-    gameState.resetGame();
-    switchMode('classic');
+    gameState.resetCurrentMode();
+    switchMode(gameState.currentMode);
     updateNewQuestionButtonVisibility();
     searchInput.focus();
   });
