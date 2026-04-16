@@ -505,6 +505,7 @@ export function switchMode(mode) {
   const classicHeaders = document.getElementById('classic-mode-headers');
   const legendBox = document.getElementById('legend-box');
   const classicScrollArea = document.getElementById('classic-scroll-area');
+  const classicReportBtn = document.getElementById('classic-report-btn');
 
   container.innerHTML = '';
   headerInfo.innerHTML = '';
@@ -517,11 +518,13 @@ export function switchMode(mode) {
     classicHeaders.classList.remove('hidden');
     classicScrollArea.classList.add('classic-layout-active');
     legendBox.classList.remove('hidden');
+    classicReportBtn.classList.remove('hidden');
     updateClassicMode();
   } else {
     classicHeaders.classList.add('hidden');
     classicScrollArea.classList.remove('classic-layout-active');
     legendBox.classList.add('hidden');
+    classicReportBtn.classList.add('hidden');
     renderCurrentMode();
   }
 
