@@ -2447,7 +2447,7 @@
         "style": "Late",
         "track": "Turf",
         "distance": "Medium Long",
-        "ears": "Left"
+        "ears": "Right"
     },
     {
         "birth_day": 22,
@@ -3322,7 +3322,7 @@
         "style": "Front Pace",
         "track": "Turf",
         "distance": "Sprint Mile",
-        "ears": "Right"
+        "ears": "Left"
     },
     {
         "birth_day": 5,
@@ -3357,7 +3357,7 @@
         "style": "Pace",
         "track": "Turf",
         "distance": "Medium Long",
-        "ears": "Left"
+        "ears": "Right"
     },
     {
         "birth_day": 10,
@@ -3427,7 +3427,7 @@
         "style": "Pace",
         "track": "Turf",
         "distance": "Mile Medium",
-        "ears": "Left"
+        "ears": "Right"
     },
     {
         "birth_day": 15,
@@ -3567,7 +3567,7 @@
         "style": "Pace",
         "track": "Turf",
         "distance": "Mile Medium",
-        "ears": "Left"
+        "ears": "Right"
     },
     {
         "birth_day": 8,
@@ -3707,7 +3707,7 @@
         "style": "Pace",
         "track": "Turf",
         "distance": "Sprint Mile",
-        "ears": "Right"
+        "ears": "Left"
     },
     {
         "birth_day": 26,
@@ -3777,7 +3777,7 @@
         "style": "Front Pace",
         "track": "Dirt",
         "distance": "Mile Medium",
-        "ears": "Left"
+        "ears": "Right"
     },
     {
         "birth_day": 1,
@@ -3882,7 +3882,7 @@
         "style": "Front",
         "track": "Dirt",
         "distance": "Mile Medium",
-        "ears": "Left"
+        "ears": "Right"
     },
     {
         "birth_day": 12,
@@ -3952,7 +3952,7 @@
         "style": "Pace Late",
         "track": "Turf",
         "distance": "Medium Long",
-        "ears": "Left"
+        "ears": "Right"
     },
     {
         "birth_day": 24,
@@ -4057,7 +4057,7 @@
         "style": "Pace",
         "track": "Turf",
         "distance": "Medium Long",
-        "ears": "Left"
+        "ears": "Right"
     },
     {
         "birth_day": 9,
@@ -4757,7 +4757,7 @@
         "style": "Pace",
         "track": "Dirt",
         "distance": "Mile Medium",
-        "ears": "Left"
+        "ears": "Right"
     },
     {
         "birth_day": 11,
