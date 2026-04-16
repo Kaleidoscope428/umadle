@@ -484,7 +484,7 @@
         "voice": "https://files.microcms-assets.io/assets/973fc097984b400db8729642ddff5938/4c28dbe43f5540da99a69c53821878b2/blastonepiece_voice.mp3",
         "quotes": "I looove humans! Let's get along and be great buddies!",
         "emoji": "",
-        "style": "Late End",
+        "style": "Late",
         "track": "Turf",
         "distance": "Mile Medium",
         "ears": "Right"
@@ -3984,7 +3984,7 @@
         "voice": "https://files.microcms-assets.io/assets/973fc097984b400db8729642ddff5938/9059130de5664d8787a7eb9342e0db79/staygold_voice.mp3",
         "quotes": "Haah, what a great view... Don't you think so, too?",
         "emoji": "",
-        "style": "Pace",
+        "style": "Late",
         "track": "Turf",
         "distance": "Medium Long",
         "ears": "Right"
@@ -4019,7 +4019,7 @@
         "voice": "https://files.microcms-assets.io/assets/973fc097984b400db8729642ddff5938/d1842180c601493196b189d9906bd5d8/stillinlove_voice.mp3",
         "quotes": "My name is *** ***. I... I'm not worthy of any more introduction... I like to... keep those things to myself...",
         "emoji": "",
-        "style": "Pace",
+        "style": "Pace Late",
         "track": "Turf",
         "distance": "Mile Medium",
         "ears": "Left"
@@ -4721,7 +4721,7 @@
         "emoji": "",
         "style": "Late",
         "track": "Turf",
-        "distance": "Medium Long",
+        "distance": "Medium",
         "ears": "Right"
     },
     {
@@ -4859,8 +4859,8 @@
         "voice": "https://files.microcms-assets.io/assets/973fc097984b400db8729642ddff5938/436fe68e4d594e5aa72edb7332bf675c/yukinobijin_voice.mp3",
         "quotes": "I wanna run in the Twinkly Series and become a spiffy city girl!",
         "emoji": "",
-        "style": "End",
-        "track": "Turf",
+        "style": "Pace",
+        "track": "Turf Dirt",
         "distance": "Mile Medium",
         "ears": "Left"
     },
@@ -4894,7 +4894,7 @@
         "voice": "https://files.microcms-assets.io/assets/973fc097984b400db8729642ddff5938/644d7bb9fa9e47709aa5835bf7f9d24e/zennorobroy_voice.mp3",
         "quotes": "To be like the hero of a fantastical tale... I can't imagine any book lover not wishing the same.",
         "emoji": "",
-        "style": "End",
+        "style": "Pace Late",
         "track": "Turf",
         "distance": "Medium Long",
         "ears": "Right"
