@@ -1938,12 +1938,6 @@
     "title_en": "[Little By Little]"
   },
   {
-    "chara_id": 1067,
-    "gametora": "30088-satono-diamond",
-    "id": 30088,
-    "title_en": "[SPECIAL DREAMERS!!]"
-  },
-  {
     "chara_id": 1055,
     "gametora": "30089-marvelous-sunday",
     "id": 30089,
@@ -2136,12 +2130,6 @@
     "title_en": "[Scorch Even the Heavens, Flame of Devotion]"
   },
   {
-    "chara_id": 1026,
-    "gametora": "30121-mihono-bourbon",
-    "id": 30121,
-    "title_en": "[U & Me]"
-  },
-  {
     "chara_id": 1037,
     "gametora": "30122-eishin-flash",
     "id": 30122,
@@ -2226,12 +2214,6 @@
     "title_en": "[Raise up your raging torch]"
   },
   {
-    "chara_id": 1083,
-    "gametora": "30136-symboli-kris-s",
-    "id": 30136,
-    "title_en": "[Unyielding resolve]"
-  },
-  {
     "chara_id": 9040,
     "gametora": "30137-ancestors-guides",
     "id": 30137,
@@ -2272,12 +2254,6 @@
     "gametora": "30143-ikuno-dictus",
     "id": 30143,
     "title_en": "[The View I Finally Reached]"
-  },
-  {
-    "chara_id": 1084,
-    "gametora": "30145-tanino-gimlet",
-    "id": 30145,
-    "title_en": "[Welcome to Umayuru]"
   },
   {
     "chara_id": 1006,
@@ -2374,12 +2350,6 @@
     "gametora": "30161-el-condor-pasa",
     "id": 30161,
     "title_en": "[Soaring Ambition]"
-  },
-  {
-    "chara_id": 1033,
-    "gametora": "30162-admire-vega",
-    "id": 30162,
-    "title_en": "[Precious☆Moments]"
   },
   {
     "chara_id": 1049,
@@ -2484,18 +2454,6 @@
     "title_en": "[Wishes of a Hundred Flowers]"
   },
   {
-    "chara_id": 1068,
-    "gametora": "30180-group",
-    "id": 30180,
-    "title_en": "[The Future Ahead!]"
-  },
-  {
-    "chara_id": 1066,
-    "gametora": "30181-twin-turbo",
-    "id": 30181,
-    "title_en": "[Sing Together]"
-  },
-  {
     "chara_id": 1099,
     "gametora": "30182-hokko-tarumae",
     "id": 30182,
@@ -2518,12 +2476,6 @@
     "gametora": "30185-north-flight",
     "id": 30185,
     "title_en": "[Go: Fashionista!]"
-  },
-  {
-    "chara_id": 1116,
-    "gametora": "30186-gentildonna",
-    "id": 30186,
-    "title_en": "[Balliamo?]"
   },
   {
     "chara_id": 1115,
@@ -2554,12 +2506,6 @@
     "gametora": "30191-sounds-of-earth",
     "id": 30191,
     "title_en": "[My Brilliante Melody for You]"
-  },
-  {
-    "chara_id": 1091,
-    "gametora": "30192-vivlos",
-    "id": 30192,
-    "title_en": "[Treasured Révérence]"
   },
   {
     "chara_id": 1089,
@@ -2682,12 +2628,6 @@
     "title_en": "[That Summer's Cut-off Line]"
   },
   {
-    "chara_id": 1003,
-    "gametora": "30213-tokai-teio",
-    "id": 30213,
-    "title_en": "[The Slapdash Grand Prix has Begun]"
-  },
-  {
     "chara_id": 1022,
     "gametora": "30214-fine-motion",
     "id": 30214,
@@ -2698,12 +2638,6 @@
     "gametora": "30215-still-in-love",
     "id": 30215,
     "title_en": "[Devilish Whispers]"
-  },
-  {
-    "chara_id": 1114,
-    "gametora": "30216-buena-vista",
-    "id": 30216,
-    "title_en": "[With Love to Our School]"
   },
   {
     "chara_id": 1110,
@@ -2862,12 +2796,6 @@
     "title_en": "[World-Changing Gaze]"
   },
   {
-    "chara_id": 1131,
-    "gametora": "30243-gran-alegria",
-    "id": 30243,
-    "title_en": "[NEW TALES AWAIT]"
-  },
-  {
     "chara_id": 1074,
     "gametora": "30244-mejiro-bright",
     "id": 30244,
@@ -2964,12 +2892,6 @@
     "title_en": null
   },
   {
-    "chara_id": 1013,
-    "gametora": "30260-mejiro-mcqueen",
-    "id": 30260,
-    "title_en": null
-  },
-  {
     "chara_id": 1117,
     "gametora": "30261-win-variation",
     "id": 30261,
@@ -2997,12 +2919,6 @@
     "chara_id": 1118,
     "gametora": "30265-admire-groove",
     "id": 30265,
-    "title_en": null
-  },
-  {
-    "chara_id": 1133,
-    "gametora": "30266-chrono-genesis",
-    "id": 30266,
     "title_en": null
   },
   {
@@ -3147,12 +3063,6 @@
     "chara_id": 1139,
     "gametora": "30290-casino-drive",
     "id": 30290,
-    "title_en": null
-  },
-  {
-    "chara_id": 1143,
-    "gametora": "30291-victoire-pisa",
-    "id": 30291,
     "title_en": null
   },
   {

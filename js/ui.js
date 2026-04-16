@@ -158,37 +158,68 @@ function updateNewQuestionButtonVisibility() {
   else ui.newQuestionBtn.classList.add('hidden');
 }
 
-function showRaceResultModal(mode, score, isNewBest) {
+function showRaceResultModal(mode, score, isNewBest, endReason = 'ended', answer = null) {
   if (!ui.modal || !ui.playAgainBtn) return;
   const title = ui.modal.querySelector('.modal-title');
   const msg = document.getElementById('victory-message');
   const info = document.getElementById('victory-character-info');
 
   ui.modal.classList.remove('one-shot-mode');
-  ui.modal.classList.remove('splash-victory-mode');
-  if (title) title.textContent = 'Time Up!';
+  ui.modal.classList.toggle('splash-victory-mode', mode === 'splash');
+  if (title) {
+    title.textContent = endReason === 'timeup' ? 'Time Up!' : 'Race Stopped';
+  }
+
+  const reasonText = endReason === 'timeup'
+    ? 'Time has run out.'
+    : 'Race stopped manually.';
+
   msg.innerHTML = `
+    ${reasonText}<br>
     Race mode: <strong>${modeLabel(mode)}</strong><br>
     Correct answers in 60s: <strong>${score}</strong>
   `;
 
-  info.classList.remove('splash-victory-layout');
-  info.innerHTML = `
-    <h3>${isNewBest ? 'New Record!' : 'Result Saved'}</h3>
-    <p>Best: <strong>${raceStats[mode].best}</strong></p>
-    <p>Last: <strong>${raceStats[mode].last}</strong></p>
-  `;
+  if (mode === 'splash' && answer?.target && answer?.splashHint?.imageUrl) {
+    info.classList.add('splash-victory-layout');
+    info.innerHTML = `
+      <div class="victory-character-side">
+        <h3>${isNewBest ? 'New Record!' : 'Result Saved'}</h3>
+        <p>Best: <strong>${raceStats[mode].best}</strong></p>
+        <p>Last: <strong>${raceStats[mode].last}</strong></p>
+        <p>Last answer: <strong>${answer.target.name}</strong></p>
+      </div>
+      <div class="victory-divider" aria-hidden="true"></div>
+      <div class="victory-splash-side">
+        <img src="${answer.splashHint.imageUrl}" alt="Last unanswered support card" class="victory-splash-full">
+      </div>
+    `;
+  } else {
+    info.classList.remove('splash-victory-layout');
+    info.innerHTML = `
+      <h3>${isNewBest ? 'New Record!' : 'Result Saved'}</h3>
+      <p>Best: <strong>${raceStats[mode].best}</strong></p>
+      <p>Last: <strong>${raceStats[mode].last}</strong></p>
+      ${answer?.target ? `<img src="${answer.target.icon}" alt="${answer.target.name}"><p>Last answer: <strong>${answer.target.name}</strong></p>` : ''}
+    `;
+  }
 
   ui.playAgainBtn.dataset.action = 'race-restart';
   ui.playAgainBtn.textContent = 'Retry 60s';
   ui.modal.classList.remove('hidden');
 }
 
-function finalizeRace(showResultModal = true) {
+function finalizeRace(showResultModal = true, endReason = 'ended') {
   if (!raceState.active) return;
 
   const completedMode = raceState.mode;
   const completedScore = raceState.score;
+  const currentTarget = gameState.targets[completedMode];
+  const currentSplashHint = completedMode === 'splash' ? gameState.getSplashHint() : null;
+  const answerSnapshot = {
+    target: currentTarget || null,
+    splashHint: currentSplashHint || null
+  };
 
   if (raceState.timerId) clearInterval(raceState.timerId);
   raceState.timerId = null;
@@ -205,7 +236,7 @@ function finalizeRace(showResultModal = true) {
   updateNewQuestionButtonVisibility();
 
   if (showResultModal) {
-    showRaceResultModal(completedMode, completedScore, completedScore > previousBest);
+    showRaceResultModal(completedMode, completedScore, completedScore > previousBest, endReason, answerSnapshot);
   }
 }
 
@@ -229,7 +260,7 @@ function startRace() {
     updateRaceHud();
 
     if (raceState.timeLeft <= 0) {
-      finalizeRace(true);
+      finalizeRace(true, 'timeup');
     }
   }, 1000);
 
@@ -457,7 +488,7 @@ export function setupUI() {
   if (ui.raceStopBtn) {
     ui.raceStopBtn.addEventListener('click', () => {
       if (!raceState.active) return;
-      finalizeRace(true);
+      finalizeRace(true, 'stopped');
     });
   }
 
@@ -473,6 +504,7 @@ export function switchMode(mode) {
   const headerInfo = document.getElementById('game-header-info');
   const classicHeaders = document.getElementById('classic-mode-headers');
   const legendBox = document.getElementById('legend-box');
+  const classicScrollArea = document.getElementById('classic-scroll-area');
 
   container.innerHTML = '';
   headerInfo.innerHTML = '';
@@ -483,10 +515,12 @@ export function switchMode(mode) {
 
   if (mode === 'classic') {
     classicHeaders.classList.remove('hidden');
+    classicScrollArea.classList.add('classic-layout-active');
     legendBox.classList.remove('hidden');
     updateClassicMode();
   } else {
     classicHeaders.classList.add('hidden');
+    classicScrollArea.classList.remove('classic-layout-active');
     legendBox.classList.add('hidden');
     renderCurrentMode();
   }

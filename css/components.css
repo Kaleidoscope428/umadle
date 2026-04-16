@@ -58,7 +58,7 @@
 /* Search Area */
 .search-section {
   width: 100%;
-  max-width: 620px;
+  max-width: 780px;
   margin-bottom: 26px;
   text-align: center;
 }
@@ -267,7 +267,7 @@
 /* Classic Mode Grid matching Loldle exactly */
 .grid-headers {
   display: grid;
-  grid-template-columns: 80px repeat(5, 1fr);
+  grid-template-columns: 84px repeat(10, minmax(92px, 1fr));
   gap: 4px;
   width: 100%;
   padding-bottom: 8px;
@@ -294,7 +294,7 @@
 /* The Grid Row */
 .guess-row {
   display: grid;
-  grid-template-columns: 80px repeat(5, 1fr);
+  grid-template-columns: 84px repeat(10, minmax(92px, 1fr));
   gap: 4px;
   min-height: 78px;
 }
@@ -787,7 +787,19 @@
 
   .grid-headers,
   .guess-row {
-    grid-template-columns: 56px repeat(5, minmax(0, 1fr));
+    grid-template-columns: 72px repeat(10, minmax(84px, 1fr));
+  }
+
+  .classic-scroll-area.classic-layout-active {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+  }
+
+  .classic-scroll-area.classic-layout-active .grid-headers,
+  .classic-scroll-area.classic-layout-active .guess-row {
+    min-width: 980px;
   }
 
   .guess-row {
@@ -882,7 +894,7 @@
 @media (max-width: 560px) {
   .grid-headers,
   .guess-row {
-    grid-template-columns: 50px repeat(5, minmax(0, 1fr));
+    grid-template-columns: 66px repeat(10, minmax(78px, 1fr));
   }
 
   .header-cell {
@@ -895,6 +907,11 @@
 
   .guess-cell {
     font-size: 0.64rem;
+  }
+
+  .classic-scroll-area.classic-layout-active .grid-headers,
+  .classic-scroll-area.classic-layout-active .guess-row {
+    min-width: 910px;
   }
 
   .search-section {

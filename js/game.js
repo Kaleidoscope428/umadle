@@ -127,7 +127,12 @@ class GameState {
         distance: this.compareString(guessChar.distance, target.distance),
         style: this.compareString(guessChar.style, target.style),
         ear: this.compareString(guessChar.ear, target.ear),
-        height: this.compareNumber(guessChar.height, target.height) // returns 'correct', 'higher', 'lower'
+        height: this.compareNumber(guessChar.height, target.height),
+        birthDay: this.compareNumber(guessChar.birthDay, target.birthDay),
+        birthMonth: this.compareNumber(guessChar.birthMonth, target.birthMonth),
+        bust: this.compareNumber(guessChar.bust, target.bust),
+        waist: this.compareNumber(guessChar.waist, target.waist),
+        hips: this.compareNumber(guessChar.hips, target.hips)
       }
     };
   }
