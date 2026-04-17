@@ -803,8 +803,12 @@
   }
 
   .classic-report-btn {
-    top: 8px;
-    left: 8px;
+    position: static;
+    top: auto;
+    left: auto;
+    z-index: auto;
+    align-self: flex-start;
+    margin: 0 0 8px;
     font-size: 0.72rem;
     padding: 6px 9px;
   }
@@ -921,6 +925,12 @@
 }
 
 @media (max-width: 560px) {
+  .classic-report-btn {
+    font-size: 0.68rem;
+    padding: 6px 8px;
+    margin-bottom: 6px;
+  }
+
   .grid-headers,
   .guess-row {
     grid-template-columns: 66px repeat(10, minmax(78px, 1fr));
